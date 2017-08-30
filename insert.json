@@ -1,0 +1,25 @@
+use bookstore
+
+createCollection books genres << find how can i create it 
+
+db.books.insert({
+    title: 'Construindo aplicações com NodeJS',
+    genre: 'technology',
+    description: 'O NodeJS é uma poderosa plataforma para construir de forma rápida e fácil aplicações de rede escaláveis. Utiliza um modelo de single thread, faz I/O não bloqueante e por isso trabalha sempre de forma assíncrona.',
+    author: 'William Bruno Moraes',
+    publisher: 'Novatec',
+    pages: '777',
+    image_url: 'https://s3.novatec.com.br/capas/9788575224564.jpg',
+    buy_url: 'https://novatec.com.br/carrinho.php?isbn=9788575224564'
+})
+
+db.books.insert({
+    title: 'Uma Abordagem Prática e Objetiva AngularJS',
+    genre: 'technology',
+    description: 'AngularJS é um framework JavaScript revolucionário, mantido por um time de engenheiros Google. Ele simplifica o desenvolvimento de aplicações web robustas e de sucesso. Por este motivo, tem-se mostrado em crescente ascensão, sendo considerado a tecnologia do momento para desenvolvimento de aplicações web.Se você tem interesse em aprender esta...',
+    author: 'Michael Henrique R. Pereira',
+    publisher: 'Novatec',
+    pages: '77',
+    image_url: 'https://s3.novatec.com.br/capas/9788575224113.jpg',
+    buy_url: 'https://novatec.com.br/carrinho.php?isbn=9788575224113'
+})
