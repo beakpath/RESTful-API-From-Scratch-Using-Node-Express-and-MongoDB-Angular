@@ -3,6 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
+app.use(express.static(__dirname+'/client'));
 app.use(bodyParser.json());
 
 Genre = require('./models/genres');
@@ -111,5 +112,5 @@ app.delete('/api/books/:_id', function (req, res) {
 });
 
 
-app.listen(80);
-console.log('Running on port 80...');
+app.listen(3000);
+console.log('Running on port 3000...');

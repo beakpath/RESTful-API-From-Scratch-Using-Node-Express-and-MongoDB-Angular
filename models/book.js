@@ -1,62 +1,60 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 // Book Schema
-var bookSchema = mongoose.Schema({
-	title: {
+const bookSchema = mongoose.Schema({
+	title:{
 		type: String,
 		required: true
 	},
-	genre: {
+	genre:{
 		type: String,
 		required: true
 	},
-	description: {
+	description:{
 		type: String
 	},
-	author: {
+	author:{
 		type: String,
 		required: true
 	},
-	publisher: {
+	publisher:{
 		type: String
 	},
-	pages: {
+	pages:{
 		type: String
 	},
-	image_url: {
+	image_url:{
 		type: String
 	},
-	buy_url: {
+	buy_url:{
 		type: String
 	},
-	create_date: {
+	create_date:{
 		type: Date,
 		default: Date.now
 	}
 });
 
-var Book = module.exports = mongoose.model('Book', bookSchema);
+const Book = module.exports = mongoose.model('Book', bookSchema);
 
 // Get Books
-module.exports.getBooks = function (callback, limit) {
+module.exports.getBooks = (callback, limit) => {
 	Book.find(callback).limit(limit);
 }
 
 // Get Book
-module.exports.getBookById = function (id, callback) {
+module.exports.getBookById = (id, callback) => {
 	Book.findById(id, callback);
 }
 
 // Add Book
-module.exports.addBook = function (book, callback) {
+module.exports.addBook = (book, callback) => {
 	Book.create(book, callback);
 }
 
 // Update Book
-module.exports.updateBook = function (id, book, options, callback) {
-	var query = {
-		_id: id
-	};
+module.exports.updateBook = (id, book, options, callback) => {
+	var query = {_id: id};
 	var update = {
 		title: book.title,
 		genre: book.genre,
@@ -70,10 +68,8 @@ module.exports.updateBook = function (id, book, options, callback) {
 	Book.findOneAndUpdate(query, update, options, callback);
 }
 
-// Delete Books
-module.exports.removeBook = function (id, callback) {
-	var query = {
-		_id: id
-	};
+// Delete Book
+module.exports.removeBook = (id, callback) => {
+	var query = {_id: id};
 	Book.remove(query, callback);
-};
+}
